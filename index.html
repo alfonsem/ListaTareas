@@ -100,20 +100,17 @@
                         $('#inputTarea').val('');
 
                         let newNodeListOfTask = $(`
-                            <article class="article-tareas">
-                                <div class="texto">Lista:</div>
-                                <div class="tarea">
+                            <div class="tarea">
                                 <div class="texto">${newTareaText}</div>
                                     <button>Borrar</button>
                                     <label>
                                         Realizada
                                         <input type="checkbox" class="completar" id="">
                                     </label>
-                                </div>
-                            </article>
+                            </div>
                         `);
 
-                        $('.subLista-tareas').append(newNodeListOfTask);
+                        $('.article-tareas').append(newNodeListOfTask);
                     }
                 }
             };
@@ -141,7 +138,10 @@
     </header>
 
     <section class="lista-tareas">
-        <div class="subLista-tareas"></div>
+
+        <div class="subLista-tareas">
+
+        </div>
 
     </section>
 
