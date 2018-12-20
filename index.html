@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tareas Alfonso</title>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
     <style>
@@ -32,7 +32,7 @@
         align-items: center;
       }
       .lista-tareas {
-        background: whitesmoke;
+        background: #8EE6F6;
         flex: 1;
         display: flex;
         justify-content: space-evenly;
@@ -57,6 +57,7 @@
     </style>
 
     <script>
+        console.log('Empieza el script');
         $(document).ready(function(){
             let newNodeTask = $(`
                 <div class="tarea">
@@ -81,31 +82,8 @@
     </header>
 
     <section class="lista-tareas">
-        <div class="tarea">
-            <div class="texto">Nueva Lista</div>
-            <button>Borrar</button>
-            <label>
-                Completar
-                <input type="checkbox" class="completar" id="">
-            </label>
-        </div>
-    </section>
 
-    <script>
-        let newNodeTask = $(
-            `
-                    <div class="tarea">
-                      <div class="texto">Nueva Lista</div>
-                      <button>Borrar</button>
-                      <label>
-                        Completar
-                        <input type="checkbox" class="completar" id="">
-                      </label>
-                    </div>
-                  `
-        );
-        $('.lista-tareas').append(newNodeTask);
-    </script>
+    </section>
 
 </body>
 
