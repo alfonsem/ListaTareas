@@ -77,13 +77,33 @@
                     .trim();
 
                     if (newListText !== '') {
-                        $('header input').val('');
+                        $('#inputLista').val('');
+
+                        let newNodeListOfList = $(`
+                            <article class="article-tareas">
+                                <div class="texto">Lista:${newListText}</div>
+                            </article>
+                        `);
+
+                        $('.lista-tareas').append(newNodeListOfList);
+                    }
+                }
+            };
+
+            let addNewTarea = ev => {
+                if (ev.keyCode === 13 || ev.type === 'click') {
+                let newTareaText = $('#inputTarea')
+                    .val()
+                    .trim();
+
+                    if (newTareaText !== '') {
+                        $('#inputTarea').val('');
 
                         let newNodeListOfTask = $(`
                             <article class="article-tareas">
-                                <div class="texto">Lista:${newListText}</div>
+                                <div class="texto">Lista:</div>
                                 <div class="tarea">
-                                <div class="texto">Nueva tarea</div>
+                                <div class="texto">${newTareaText}</div>
                                     <button>Borrar</button>
                                     <label>
                                         Realizada
@@ -93,13 +113,15 @@
                             </article>
                         `);
 
-                        $('.lista-tareas').append(newNodeListOfTask);
+                        $('.subLista-tareas').append(newNodeListOfTask);
                     }
                 }
             };
 
             $('#inputLista').on('keyup', addNewList);
             $('#buttonLista').on('click', addNewList);
+            $('#inputTarea').on('keyup', addNewTarea);
+            $('#buttonTarea').on('click', addNewTarea);
 
         });
     </script>
@@ -119,7 +141,7 @@
     </header>
 
     <section class="lista-tareas">
-
+        <div class="subLista-tareas"></div>
 
     </section>
 
