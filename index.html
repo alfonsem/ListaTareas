@@ -30,6 +30,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
+        color: white;
       }
       .seccionHeader{
           padding: 5em;
@@ -67,7 +69,7 @@
     </style>
 
     <script>
-        //console.log('Empieza el script');
+        console.log('Empieza el script');
         $(document).ready(function(){
 
             let addNewList = ev => {
@@ -78,14 +80,20 @@
 
                     if (newListText !== '') {
                         $('#inputLista').val('');
-
                         let newNodeListOfList = $(`
                             <article class="article-tareas">
                                 <div class="texto">Lista:${newListText}</div>
+                                <input id="inputTarea" type="text" placeholder="Escribe una nueva tarea" />
+                                <button id="buttonTarea">Añadir Tarea</button>
+                                <div class="agregarTarea">
+                                </div>
                             </article>
                         `);
 
                         $('.lista-tareas').append(newNodeListOfList);
+                        console.log('hola');
+                        $('#inputTarea',newNodeListOfList).on('keyup',addNewTarea);
+                        $('#buttonTarea',newNodeListOfList).on('click',addNewTarea);
                     }
                 }
             };
@@ -95,7 +103,6 @@
                 let newTareaText = $('#inputTarea')
                     .val()
                     .trim();
-
                     if (newTareaText !== '') {
                         $('#inputTarea').val('');
 
@@ -110,15 +117,14 @@
                             </div>
                         `);
 
-                        $('.article-tareas').append(newNodeListOfTask);
+                        $('.agregarTarea').append(newNodeListOfTask);
                     }
                 }
             };
-
             $('#inputLista').on('keyup', addNewList);
             $('#buttonLista').on('click', addNewList);
-            $('#inputTarea').on('keyup', addNewTarea);
-            $('#buttonTarea').on('click', addNewTarea);
+            /*$('#inputTarea').on('keyup', addNewTarea);
+            $('#buttonTarea').on('click', addNewTarea);*/
 
         });
     </script>
@@ -128,20 +134,13 @@
 <body>
     <header>
         <div class="seccionHeader">
+            <h2>Listas de tareas</h2>
             <input id="inputLista" type="text" placeholder="Escribe una nueva lista" />
             <button id="buttonLista">Añadir Lista</button>
-        </div>
-        <div class="seccionHeader">
-            <input id="inputTarea" type="text" placeholder="Escribe una nueva tarea" />
-            <button id="buttonTarea">Añadir Tarea</button>
         </div>
     </header>
 
     <section class="lista-tareas">
-
-        <div class="subLista-tareas">
-
-        </div>
 
     </section>
 
